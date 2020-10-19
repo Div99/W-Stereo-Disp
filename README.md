@@ -9,7 +9,7 @@ by [Divyansh Garg](https://divyanshgarg.com), [Yan Wang](https://www.cs.cornell.
 ![Figure](figures/neurips2020-pipeline.png)
 ### Citation
 ```
-@inproceedings{wang2019pseudo,
+@inproceedings{div2020wstereo,
   title={Wasserstein Distances for Stereo Disparity Estimation},
   author={Garg, Divyansh and Wang, Yan and Hariharan, Bharath and Campbell, Mark and Weinberger, Kilian and Chao, Wei-Lun},
   booktitle={NeurIPS},
