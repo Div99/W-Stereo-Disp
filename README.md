@@ -10,10 +10,10 @@ by [Divyansh Garg](https://divyanshgarg.com), [Yan Wang](https://www.cs.cornell.
 ### Citation
 ```
 @inproceedings{wang2019pseudo,
-  title={Pseudo-LiDAR from Visual Depth Estimation: Bridging the Gap in 3D Object Detection for Autonomous Driving},
-  author={Wang, Yan and Chao, Wei-Lun and Garg, Divyansh and Hariharan, Bharath and Campbell, Mark and Weinberger, Kilian},
-  booktitle={CVPR},
-  year={2019}
+  title={Wasserstein Distances for Stereo Disparity Estimation},
+  author={Garg, Divyansh and Wang, Yan and Hariharan, Bharath and Campbell, Mark and Weinberger, Kilian and Chao, Wei-Lun},
+  booktitle={NeurIPS},
+  year={2020}
 }
 ```
 
