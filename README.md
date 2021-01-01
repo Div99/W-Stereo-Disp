@@ -158,7 +158,7 @@ For training 3D object detection models, follow step 4 and after in the Pseudo-L
 ### Results on the Stereo Disparity
 ![Figure](figures/results_disp.png)
 
-### Results on the Stereo 3D Object Detection
+### 3D Object Detection Results on KITTI leader board
 ![Figure](figures/results_object3d.png)
 
 ## Questions
