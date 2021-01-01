@@ -151,7 +151,7 @@ python ./src/main.py -c src/configs/kitti_w1.config \
 The results will be saved in `./results/sdn_kitti_trainval/depth_maps_test/`.
 
 #### 7 Train 3D Detection with Pseudo-LiDAR
-For training 3D object detection models, follow step 4 and after in the Pseudo-LiDAR_V2 repo https://github.com/milean/Pseudo_Lidar_V2.
+For training 3D object detection models, follow step 4 and after in the Pseudo-LiDAR_V2 repo https://github.com/mileyan/Pseudo_Lidar_V2.
 
 ## Questions
 Please feel free to email us if you have any questions. 
