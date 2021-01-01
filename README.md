@@ -18,7 +18,7 @@ by [Divyansh Garg](https://divyanshgarg.com), [Yan Wang](https://www.cs.cornell.
 }
 ```
 
-### Abstract
+### Introduction
 Existing approaches to depth or disparity estimation output a distribution over a
 set of pre-defined discrete values. This leads to inaccurate results when the true
 depth or disparity does not match any of these values. The fact that this distribution
@@ -152,6 +152,14 @@ The results will be saved in `./results/sdn_kitti_trainval/depth_maps_test/`.
 
 #### 7 Train 3D Detection with Pseudo-LiDAR
 For training 3D object detection models, follow step 4 and after in the Pseudo-LiDAR_V2 repo https://github.com/mileyan/Pseudo_Lidar_V2.
+
+## Results
+
+### Results on the Stereo Disparity.
+![Figure](figures/results_disp.png)
+
+### Results on the Stereo 3D Object Detection.
+![Figure](figures/results_object3d.png)
 
 ## Questions
 Please feel free to email us if you have any questions. 
