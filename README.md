@@ -18,7 +18,7 @@ by [Divyansh Garg](https://divyanshgarg.com), [Yan Wang](https://www.cs.cornell.
 }
 ```
 
-### Introduction
+## Introduction
 Existing approaches to depth or disparity estimation output a distribution over a
 set of pre-defined discrete values. This leads to inaccurate results when the true
 depth or disparity does not match any of these values. The fact that this distribution
@@ -34,7 +34,9 @@ especially around object boundaries that greatly affect the localization of obje
 
 ## Contents
 
-We release the code for CDN-PSMNet and CDN-SDN models.
+Our Wasserstein loss modification [W_loss](https://github.com/Div99/W-Stereo-Disp/blob/85cbf2bdc199a632ffe6b960f91bdc8e02046b77/src/main_disp.py#L123) can be easily plugged in existing stereo depth models to improve the training and obtain better results.
+
+We release the code for CDN-PSMNet and CDN-SDN models. 
 
 - [Requirements](#requirements)
 - [Pretrained Models](#pretrained-models)
