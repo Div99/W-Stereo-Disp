@@ -127,7 +127,7 @@ python ./src/main_depth.py -c src/configs/kitti_w1.config \
     --pretrain ./results/sceneflow_w1/checkpoint.pth.tar \
     --dataset  path-to-KITTI/training/ --split_train ./split/trainval.txt \
     --save_path ./results/sdn_kitti_trainval
-
+ ```
 The disparity models can also be trained on KITTI2015 datasets using `src/kitti2015_w1_disp.config`.
 
 #### 3 Generate Predictions
