@@ -146,13 +146,13 @@ The results will be saved in `./results/sdn_kitti_train/depth_maps_trainval/`.
 The results will be saved in `./results/sdn_kitti_trainval_set/depth_maps_trainval/`.
 ```bash
 # testing sets
-python ./src/main.py -c src/configs/kitti_w1.config \
+python ./src/main_depth.py -c src/configs/kitti_w1.config \
     --resume ./results/sdn_kitti_trainval/checkpoint.pth.tar --datapath  path-to-KITTI/testing/ \
     --data_list=./split/test.txt --generate_depth_map --data_tag test
 ``` 
 The results will be saved in `./results/sdn_kitti_trainval/depth_maps_test/`.
 
-#### 7 Train 3D Detection with Pseudo-LiDAR
+#### 4 Train 3D Detection with Pseudo-LiDAR
 For training 3D object detection models, follow step 4 and after in the Pseudo-LiDAR_V2 repo https://github.com/mileyan/Pseudo_Lidar_V2.
 
 ## Results
