@@ -1,6 +1,6 @@
 # Wasserstein Distances for Stereo Disparity Estimation
 
-Accepted in NeurIPS 2020 as Spotlight. [**[Project Page](div99.github.io/w-stereo-disp/)**]
+Accepted in NeurIPS 2020 as Spotlight. [**[Project Page](https://div99.github.io/W-Stereo-Disp)**]
 
 [Wasserstein Distances for Stereo Disparity Estimation](https://arxiv.org/abs/2007.03085) 
 
