@@ -1,8 +1,8 @@
 # Wasserstein Distances for Stereo Disparity Estimation
 
-Accepted in NeurIPS 2020 as Spotlight.
+Accepted in NeurIPS 2020 as Spotlight. [**[Project Page](https://div99.github.io/W-Stereo-Disp)**]
 
-[Wasserstein Distances for Stereo Disparity Estimation](https://arxiv.org/abs/2007.03085)
+[Wasserstein Distances for Stereo Disparity Estimation](https://arxiv.org/abs/2007.03085) 
 
 by [Divyansh Garg](https://divyanshgarg.com), [Yan Wang](https://www.cs.cornell.edu/~yanwang/), [Bharath Hariharan](http://home.bharathh.info/), [Mark Campbell](https://campbell.mae.cornell.edu/), [Kilian Q. Weinberger](http://kilian.cs.cornell.edu/) and [Wei-Lun Chao](http://www-scf.usc.edu/~weilunc/)
 
@@ -142,7 +142,7 @@ python ./src/main_depth.py -c src/configs/kitti_w1.config \
     --pretrain ./results/sceneflow_w1/checkpoint.pth.tar \
     --datapath  path-to-KITTI/training/ --split_train ./split/trainval.txt \
     --save_path ./results/sdn_kitti_trainval
-
+ ```
 The disparity models can also be trained on KITTI2015 datasets using `src/kitti2015_w1_disp.config`.
 
 #### 3 Generate Predictions
@@ -161,13 +161,13 @@ The results will be saved in `./results/sdn_kitti_train/depth_maps_trainval/`.
 The results will be saved in `./results/sdn_kitti_trainval_set/depth_maps_trainval/`.
 ```bash
 # testing sets
-python ./src/main.py -c src/configs/kitti_w1.config \
+python ./src/main_depth.py -c src/configs/kitti_w1.config \
     --resume ./results/sdn_kitti_trainval/checkpoint.pth.tar --datapath  path-to-KITTI/testing/ \
     --data_list=./split/test.txt --generate_depth_map --data_tag test
 ``` 
 The results will be saved in `./results/sdn_kitti_trainval/depth_maps_test/`.
 
-#### 7 Train 3D Detection with Pseudo-LiDAR
+#### 4 Train 3D Detection with Pseudo-LiDAR
 For training 3D object detection models, follow step 4 and after in the Pseudo-LiDAR_V2 repo https://github.com/mileyan/Pseudo_Lidar_V2.
 
 ## Results
