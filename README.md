@@ -1,6 +1,6 @@
 # Wasserstein Distances for Stereo Disparity Estimation
 
-Accepted in NeurIPS 2020 as Spotlight. [**[Project Page](https://div99.github.io/W-Stereo-Disp)**]
+[**[Project Page](https://div99.github.io/W-Stereo-Disp)**] Accepted in NeurIPS 2020 as Spotlight
 
 [Wasserstein Distances for Stereo Disparity Estimation](https://arxiv.org/abs/2007.03085) 
 
@@ -37,7 +37,7 @@ especially around object boundaries that greatly affect the localization of obje
 
 ## Contents
 
-Our Wasserstein loss modification [W_loss](https://github.com/Div99/W-Stereo-Disp/blob/85cbf2bdc199a632ffe6b960f91bdc8e02046b77/src/main_disp.py#L123) can be easily plugged in existing stereo depth models to improve the training and obtain better results.
+Our Wasserstein loss [W_loss](https://github.com/Div99/W-Stereo-Disp/blob/85cbf2bdc199a632ffe6b960f91bdc8e02046b77/src/main_disp.py#L123) can be easily plugged in existing stereo depth models to improve the training and obtain better results.
 
 We release the code for CDN-PSMNet and CDN-SDN models. 
 
