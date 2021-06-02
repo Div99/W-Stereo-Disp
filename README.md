@@ -32,6 +32,9 @@ object detection. Our approach drastically reduces the error in ambiguous region
 especially around object boundaries that greatly affect the localization of objects in
 3D, achieving the state-of-the-art in 3D object detection for autonomous driving.
 
+## Update
+  - 1 June 2021: Released all pretrained models. Added script to download KITTI Object Detection dataset.
+
 ## Contents
 
 Our Wasserstein loss modification [W_loss](https://github.com/Div99/W-Stereo-Disp/blob/85cbf2bdc199a632ffe6b960f91bdc8e02046b77/src/main_disp.py#L123) can be easily plugged in existing stereo depth models to improve the training and obtain better results.
@@ -51,11 +54,22 @@ We release the code for CDN-PSMNet and CDN-SDN models.
 5. [KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d)
 
 ## Pretrained Models
-TO BE ADDED.
 
+Place the checkpoint folders in `./results`.
+
+Depth Models
+- [Trained on Sceneflow](https://drive.google.com/drive/folders/1uav_MD0cJ3jaeqkfJVwAv37r_cS_sKDn?usp=sharing)
+- [Trained on KITTI Object Detection train set](https://drive.google.com/drive/folders/1c-YUzbuaS5wbBAmSznrP34Kn-lsWW56-?usp=sharing)
+- [Trained on KITTI Object Detection train+val set](https://drive.google.com/drive/folders/1gePafBBvHJDm1b4EpTa34C3XqoPOz757?usp=sharing)
+
+
+Disparity Models
+- [Trained on Sceneflow](https://drive.google.com/drive/folders/1E0QxohXyuGad96P64QwxQc7PVL99GGJU?usp=sharing)
+- [Trained on KITTI 2015 train set](https://drive.google.com/drive/folders/1B-Jpr6w8-IaFpw54vji2oxVh8PLtYhJo?usp=sharing)
 ## Datasets
 You have to download the [SceneFlow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html) and [KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d) datasets. The structures of the datasets are shown in below. 
 
+KITTI can be automatically downloaded using `./scripts/download_kitti.sh`
 #### SceneFlow Dataset Structure
 ```
 SceneFlow
@@ -102,10 +116,11 @@ Optionally download [KITTI2015](http://www.cvlibs.net/datasets/kitti/eval_scene_
 
 We have provided all pretrained models [Pretrained Models](#pretrained-models). If you only want to generate the predictions, you can directly go to step [3](#3-generate-predictions). 
 
-The default setting requires four gpus to train. You can use smaller batch sizes which are `btrain` and `bval`, if you don't have enough gpus. 
+We use config files to simplify argument parsing. The default setting requires four gpus to train. You can use smaller batch sizes which are `btrain` and `bval`, if you don't have enough gpus. 
 
 We provide code for both stereo disparity and stereo depth models.
 
+We optionally use [Losswise](https://losswise.com) to visualize training metrics. An API key can be obtained and added to a config key to enable it.
 #### 1 Train CDN-SDN from Scratch on SceneFlow Dataset
 ```bash
 python ./src/main_depth.py -c src/configs/sceneflow_w1.config
@@ -117,7 +132,7 @@ Follow same procedure to train stereo disparity model, but use `src/main_disp.py
 #### 2 Train CDN-SDN on KITTI Dataset
 ```bash
 python ./src/main_depth.py -c src/configs/kitti_w1.config \
-    --pretrain ./results/sceneflow_w1/checkpoint.pth.tar --dataset  path-to-KITTI/training/
+    --pretrain ./results/sceneflow_w1/checkpoint.pth.tar --datapath  path-to-KITTI/training/
 ```
 Before running, please change the fakepath `path-to-KITTI/` to the correct one. `--pretrain` is the path to the  pretrained model on SceneFlow. The training results are saved in `./results/kitti_w1_train`.
 
@@ -125,7 +140,7 @@ If you are working on evaluating CDN on KITTI testing set, you might want to tra
 ```bash
 python ./src/main_depth.py -c src/configs/kitti_w1.config \
     --pretrain ./results/sceneflow_w1/checkpoint.pth.tar \
-    --dataset  path-to-KITTI/training/ --split_train ./split/trainval.txt \
+    --datapath  path-to-KITTI/training/ --split_train ./split/trainval.txt \
     --save_path ./results/sdn_kitti_trainval
 
 The disparity models can also be trained on KITTI2015 datasets using `src/kitti2015_w1_disp.config`.
@@ -166,6 +181,6 @@ For training 3D object detection models, follow step 4 and after in the Pseudo-L
 ## Questions
 Please feel free to email us if you have any questions. 
 
-Divyansh Garg [dg595@cornell.edu](mailto:dg595@cornell.edu?subject=[GitHub]%20W-Stereo_Disp)
-Yan Wang [yw763@cornell.edu](mailto:yw763@cornell.edu?subject=[GitHub]%20W-Stereo_Disp)
-Wei-Lun Chao [weilunchao760414@gmail.com](mailto:weilunchao760414@gmail.com?subject=[GitHub]%20W-Stereo_Disp)
+Divyansh Garg ([dg595@cornell.edu](mailto:dg595@cornell.edu?subject=[GitHub]%20W-Stereo_Disp)),
+Yan Wang ([yw763@cornell.edu](mailto:yw763@cornell.edu?subject=[GitHub]%20W-Stereo_Disp)),
+Wei-Lun Chao ([weilunchao760414@gmail.com](mailto:weilunchao760414@gmail.com?subject=[GitHub]%20W-Stereo_Disp))

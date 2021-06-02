@@ -94,6 +94,11 @@ args = parser.parse_args()
 best_EPE = 1e10
 
 
+use_losswise = False
+if args.api_key:
+    use_losswise = True
+
+
 def interpolate_value_disp(x, indices, maxdisp=args.maxdisp):
     """
     bilinear interpolate tensor x at sampled indices
@@ -141,8 +146,8 @@ def W1_loss(prob, target, off, mask, epoch, reduction="mean"):
 
 def main():
     global best_EPE
-
-    lw = utils_func.LossWise(args.api_key, args.losswise_tag, args.epochs - 1)
+    if use_losswise:
+        lw = utils_func.LossWise(args.api_key, args.losswise_tag, args.epochs - 1)
     # set logger
     log = logger.setup_logger(os.path.join(args.save_path, "training.log"))
     for key, value in sorted(vars(args).items()):
@@ -276,7 +281,8 @@ def main():
             # log.info(train_metric.print(batch_idx, 'TRAIN') + ' Time:{:.3f}'.format(time.time() - start_time))
         log.info(train_metric.print(0, "TRAIN Epoch" + str(epoch)))
         train_metric.tensorboard(writer, epoch, token="TRAIN")
-        lw.update(train_metric.get_info(), epoch, "Train")
+        if use_losswise:
+            lw.update(train_metric.get_info(), epoch, "Train")
 
         ## testing ##
         is_best = False
@@ -291,7 +297,8 @@ def main():
                 # log.info(test_metric.print(batch_idx, 'TEST') + ' Time:{:.3f}'.format(time.time() - start_time))
             log.info(test_metric.print(0, "TEST Epoch" + str(epoch)))
             test_metric.tensorboard(writer, epoch, token="TEST")
-            lw.update(test_metric.get_info(), epoch, "Test")
+            if use_losswise:
+                lw.update(test_metric.get_info(), epoch, "Test")
 
             # SAVE
             is_best = test_metric.EPE.avg < best_EPE
@@ -309,7 +316,9 @@ def main():
             epoch,
             folder=args.save_path,
         )
-    lw.done()
+
+    if use_losswise:
+        lw.done()
 
 
 def save_checkpoint(state, is_best, epoch, filename="checkpoint.pth.tar", folder="result/default"):

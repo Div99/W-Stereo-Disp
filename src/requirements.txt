@@ -6,3 +6,4 @@ tqdm
 pillow==6.2.0
 losswise
 tensorboardx
+imageio
